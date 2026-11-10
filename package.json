@@ -1,0 +1,20 @@
+{
+  "name": "streakline",
+  "version": "2.0.0",
+  "description": "Streakline - Clean, offline-first personal habit and streak tracker",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "test": "node --test test/logic.test.js"
+  },
+  "keywords": [
+    "habit-tracker",
+    "streak",
+    "productivity",
+    "pwa",
+    "offline-first"
+  ],
+  "author": "",
+  "license": "MIT"
+}
