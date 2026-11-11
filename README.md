@@ -1,69 +1,53 @@
 # Streakline 🎯
 
-A clean, high-contrast, offline-first personal habit and streak tracker.
+A private, offline-first habit tracker. Track daily routines, watch your streaks grow on a heatmap, and keep your data on your device.
 
-![Streakline Icon](icon.svg)
+## Try it now
 
-## Download and use
+Open the [Streakline web app](https://primordial04.github.io/Streak/). It works in modern desktop browsers and can be installed as a PWA where the browser supports installation.
 
-Visit the [Streakline web app](https://primordial04.github.io/Streak/) to use it in a browser. Your data stays on your device.
+For native computer installers, download the file for your platform from [GitHub Releases](https://github.com/Primordial04/Streak/releases/latest):
 
-For native installers, open [Releases](https://github.com/Primordial04/Streak/releases/latest) and choose the file for your device:
-
-| Platform | Download |
+| Computer | Download |
 | --- | --- |
-| Windows | .exe installer |
-| macOS | .dmg disk image |
-| Linux | .AppImage or .deb package |
-| Android | Signed .apk installer |
+| Windows | .exe installer or .msi package |
+| macOS | .dmg for Intel or Apple Silicon |
+| Linux | .AppImage, .deb, or .rpm |
 
-The release workflow creates these downloads when a v* version tag is published. macOS builds are not notarized, so macOS may ask you to confirm opening the downloaded app. Android releases require the repository owner to configure a persistent signing key using the GitHub Actions secrets ANDROID_KEY_BASE64, ANDROID_KEY_ALIAS, and ANDROID_KEY_PASSWORD. Keep that key private and backed up; future Android updates must use the same key. Publishing through Google Play requires a signed .aab and a Play Console account.
+macOS builds are not notarized, so macOS may ask you to confirm opening the app.
+
+### PlayStation
+
+The web app may work in the PS4 browser, but console use has not been tested. Sony says PS5 does not include a dedicated web browser, so Streakline is not directly supported on PS5. Streakline is not a PlayStation Store app.
 
 ## Features
 
-- **Streak & Habit Tracking**: Track daily habits, consistency scores, and milestone badges.
-- **Calendar & Contribution Heatmaps**: Visual GitHub-style heatmap (26 and 53 weeks) and monthly calendar views.
-- **Personal Profile**: Add your name and a custom profile picture or animated GIF with automatic canvas compression.
-- **History Preservation**: Archive habits instead of destructive deletion so past streaks are never lost.
-- **Interactive Tour & User Manual**: Built-in walkthrough and on-demand guide.
-- **Offline & Private**: Offline-first PWA with Service Worker caching and local JSON backup export/import.
-- **Accessible Colors**: Default accent colors meet at least 4.5:1 contrast for text; custom accent colors with insufficient contrast are rejected.
-- **Theme Colors**: Choose separate dark and light accent colors with a color picker or hex code.
-- **Motion**: Smooth hover and keyboard-focus labels, button ripples, and reduced-motion support.
+- Track habits, streaks, consistency, and milestones.
+- Review activity in monthly calendars and contribution heatmaps.
+- Keep data locally, with JSON backup export and import.
+- Use the app offline after it has loaded once.
+- Customize light and dark theme colors with contrast checks.
 
 ## Run locally
 
-Start the browser version on port 3000:
+Requires Node.js. Start the web app on port 3000:
 
-```bash
+~~~sh
+npm install
 npm start
-```
+~~~
 
 Then open [http://localhost:3000](http://localhost:3000).
 
-To run the desktop app during development, install the prerequisites for [Tauri](https://v2.tauri.app/start/prerequisites/), then run:
+## Build and test
 
-```bash
-npm install
-npm run tauri dev
-```
+The release workflow builds installers for Windows, macOS, and Linux when a version tag is published. To build the static web bundle and run the logic tests:
 
-## Build
-
-The v* GitHub Actions release workflow builds Windows .exe, macOS .dmg, Linux .AppImage and .deb, and a signed Android .apk, then attaches them to the GitHub release. Build the static web bundle locally with:
-
-```bash
+~~~sh
 npm run build:web
-```
-
-The Pages workflow publishes the web app at [primordial04.github.io/Streak](https://primordial04.github.io/Streak/).
-
-## Tests
-
-```bash
 npm test
-```
+~~~
 
-## License
+## Contributing
 
-[MIT](LICENSE)
+Bug reports and pull requests are welcome. The project is licensed under the [MIT License](LICENSE).
