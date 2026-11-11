@@ -1,0 +1,45 @@
+name: Build and publish Streakline installers
+
+
+on:
+  push:
+    tags: ['v*']
+
+
+permissions:
+  contents: write
+
+
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-latest
+            args: --bundles nsis,msi
+          - runner: macos-15-intel
+            args: --target x86_64-apple-darwin --bundles dmg
+          - runner: macos-15
+            args: --target aarch64-apple-darwin --bundles dmg
+          - runner: ubuntu-24.04
+            args: --bundles appimage,deb,rpm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: dtolnay/rust-toolchain@stable
+      - if: matrix.runner == 'ubuntu-24.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev librsvg2-dev libayatana-appindicator3-dev rpm
+      - run: npm install
+      - run: npm run tauri icon icon.svg
+      - uses: tauri-apps/tauri-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: ${{ matrix.args }}
+
