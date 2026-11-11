@@ -1,11 +1,13 @@
 {
   "name": "streakline",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Streakline - Clean, offline-first personal habit and streak tracker",
   "type": "module",
   "main": "index.html",
   "scripts": {
     "start": "npx serve -l 3000 .",
+    "build:web": "node scripts/copy-web-assets.mjs",
+    "tauri": "tauri",
     "test": "node --test test/logic.test.js"
   },
   "keywords": [
@@ -16,5 +18,8 @@
     "offline-first"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0"
+  }
 }
