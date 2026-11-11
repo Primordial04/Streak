@@ -2,6 +2,9 @@
 /node_modules/
 /dist/
 /build/
+/src-tauri/target/
+/src-tauri/gen/
+/src-tauri/icons/
 /out/
 npm-debug.log*
 yarn-debug.log*
@@ -10,6 +13,9 @@ yarn-debug.log*
 .env
 .env.*
 !.env.example
+/src-tauri/keystore.properties
+*.jks
+*.keystore
 
 # Editor and operating-system files
 .vscode/
