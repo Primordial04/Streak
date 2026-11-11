@@ -1,6 +1,6 @@
 {
   "name": "streakline",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Streakline - Clean, offline-first personal habit and streak tracker",
   "type": "module",
   "main": "index.html",
@@ -10,16 +10,8 @@
     "tauri": "tauri",
     "test": "node --test test/logic.test.js"
   },
-  "keywords": [
-    "habit-tracker",
-    "streak",
-    "productivity",
-    "pwa",
-    "offline-first"
-  ],
+  "keywords": ["habit-tracker", "streak", "productivity", "pwa", "offline-first"],
   "author": "",
   "license": "MIT",
-  "devDependencies": {
-    "@tauri-apps/cli": "^2.0.0"
-  }
+  "devDependencies": { "@tauri-apps/cli": "^2.0.0" }
 }
