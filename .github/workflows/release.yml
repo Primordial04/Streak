@@ -1,14 +1,11 @@
 name: Build and publish Streakline installers
 
-
 on:
   push:
     tags: ['v*']
 
-
 permissions:
   contents: write
-
 
 jobs:
   desktop:
@@ -41,5 +38,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tagName: ${{ github.ref_name }}
+          releaseName: Streakline ${{ github.ref_name }}
+          releaseDraft: false
           args: ${{ matrix.args }}
-
